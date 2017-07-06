@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="person1" class="Employee">
+		<property name="name" value="Burak Köken"></property>
+		<property name="salary" value="4500"></property>
+	</bean>
+
+	<bean id="elementCollection" class="Collections">
+		<property name="elementList">
+			<list>
+				<ref bean="person1" />
+				<value>Şeyma Yılmaz</value>
+				<value>C Berk Semerci</value>
+				<bean class="Employee">
+					<property name="name" value="Uğur Çetin"></property>
+					<property name="salary" value="4500"></property>
+				</bean>
+			</list>
+		</property>
+		<property name="elementSet">
+			<set>
+				<ref bean="person1" />
+				<value>Beril Köken</value>
+				<value>Burak Köken</value>
+				<bean class="Employee">
+					<property name="name" value="Yunus Emre Ertürk"></property>
+					<property name="salary" value="4500"></property>
+				</bean>
+			</set>
+		</property>
+		<property name="elementMap">
+			<map>
+				<entry key="1" value="Burak Köken"></entry>
+				<entry key="2" value="Şeyma Yılmaz"></entry>
+				<entry key="3" value-ref="person1"></entry>
+				<entry key="4">
+					<bean class="Employee">
+						<property name="name" value="Elif Akay"></property>
+						<property name="salary" value="4500"></property>
+					</bean>
+				</entry>
+			</map>
+		</property>
+		<property name="elementProperties">
+			<props>
+				<prop key="FullName">Burak Köken</prop>
+				<prop key="Age">23</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
